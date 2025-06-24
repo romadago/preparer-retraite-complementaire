@@ -46,8 +46,8 @@ const App: React.FC = () => {
 
   // --- State Management for Inputs ---
   const [revenuRecherche, setRevenuRecherche] = useState<number>(500);
-  const [dureePlacement, setDureePlacement] = useState<number>(15);
-  const [versementInitial, setVersementInitial] = useState<number>(5000);
+  const [dureePlacement, setDureePlacement] = useState<number>(20);
+  const [versementInitial, setVersementInitial] = useState<number>(10000);
   
   // --- State Management for Results ---
   const [results, setResults] = useState({ versementMensuelRequis: 0, capitalVise: 0 });
@@ -194,9 +194,9 @@ const App: React.FC = () => {
         
         <div className="text-center mb-10">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-100">
-                Préparez les Études de votre Enfant
+                Préparez votre Retraite Complémentaire
             </h1>
-            <p className="text-slate-300 mt-2">Découvrez l'effort d'épargne mensuel pour générer le revenu mensuel nécessaire.</p>
+            <p className="text-slate-300 mt-2">Découvrez l'effort d'épargne mensuel pour vous constituer un complément de revenu pour la retraite.</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
@@ -206,19 +206,19 @@ const App: React.FC = () => {
                 <div className="space-y-6">
                 <InputSlider
                     id="revenuRecherche"
-                    label="Revenu mensuel pour ses études"
+                    label="Revenu mensuel souhaité à la retraite"
                     unit="€"
                     value={revenuRecherche}
                     onChange={(e) => setRevenuRecherche(parseFloat(e.target.value))}
-                    min={100} max={2000} step={50}
+                    min={100} max={3000} step={50}
                 />
                 <InputSlider
                     id="dureePlacement"
-                    label="Durée jusqu'aux études"
+                    label="Durée jusqu'à la retraite"
                     unit="ans"
                     value={dureePlacement}
                     onChange={(e) => setDureePlacement(parseFloat(e.target.value))}
-                    min={1} max={25} step={1}
+                    min={5} max={45} step={1}
                 />
                 <InputSlider
                     id="versementInitial"
@@ -235,7 +235,7 @@ const App: React.FC = () => {
             <div className="lg:col-span-3 bg-slate-700/50 p-6 rounded-lg shadow-inner ring-1 ring-white/10 flex flex-col justify-start">
                 <div className="text-center">
                     <h2 className="text-2xl font-semibold text-[#00FFD2] mb-4">Résultat de votre projet</h2>
-                    <p className="text-gray-300 mb-6">Pour financer des études nécessitant <span className="font-bold text-white">{revenuRecherche.toLocaleString('fr-FR')} €/mois</span>, le versement mensuel suggéré est de :</p>
+                    <p className="text-gray-300 mb-6">Pour obtenir un revenu complémentaire de <span className="font-bold text-white">{revenuRecherche.toLocaleString('fr-FR')} €/mois</span> à la retraite, le versement mensuel suggéré est de :</p>
                     
                     <div className="bg-emerald-100 p-6 rounded-lg text-center shadow">
                         <p className="text-3xl md:text-4xl font-extrabold text-emerald-900">
