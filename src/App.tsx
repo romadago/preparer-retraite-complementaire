@@ -164,11 +164,10 @@ const App: React.FC = () => {
     };
 
     try {
-        // This is the call to the Netlify serverless function
         const response = await fetch('/.netlify/functions/send-simulation', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, data: simulationData }),
+            body: JSON.stringify({ email, data: simulationData, theme: 'Retraite' }),
         });
 
         if (!response.ok) {
